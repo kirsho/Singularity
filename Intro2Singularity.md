@@ -144,7 +144,7 @@ sudo apt-get install libarchive-dev
 Works fine.  
 
 
-# How to create an Singularity image
+# How to create a Singularity image
 
 [RTFM](https://sylabs.io/guides/3.2/user-guide/build_a_container.html) for more details
 
@@ -244,7 +244,8 @@ Share the image. quite stupid, could weight 1 Go at least.  Share the `def file`
 
 ## With hubs
 ### Sylabs Hub
-Not tested yet
+with `singularity push`.  
+Requires version > 3.0.1
 
 ### Singularity hub
 [shub](https://www.singularity-hub.org/) container registry
@@ -292,7 +293,7 @@ condainit
 - Export conda env recipe in a yml file
 
 ```
-conda env export -n ngs3 -f ~/whereyouwant/ngs3.yml
+conda env export --no-build -n ngs3 -f ~/whereyouwant/ngs3.yml
 ```
 - Use this `.yml` in your `def file` to build your image
 
