@@ -331,7 +331,7 @@ bowtie-1.2.2             /shared/mfs/data/software/miniconda/envs/bowtie-1.2.2
 
 - Export recipe of the env you want to "clone".
 ```
-conda env export -n bowtie2-2.3.4.3  -f ~/whereyouwant/bw223.yml
+conda env export --no-build -n bowtie2-2.3.4.3  -f ~/whereyouwant/bw223.yml
 ```
 
 - Bring it back to HOME
