@@ -273,6 +273,7 @@ shub will create the [image](https://www.singularity-hub.org/collections/3244). 
 
 How to use them is explained [here](https://www.singularity-hub.org/collections/3244/usage)
 
+use `git pull origin master --allow-unrelated-histories` if you already have files in your remote repository.  
 
 
 ## Create a Singularity image from a conda env
