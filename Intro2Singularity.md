@@ -235,8 +235,8 @@ sudo singularity build ngs3.simg ngs3.def
 
 ### Last uptodate version of my definition files
 
-Check my [Singularity](https://github.com/kirsho/Singularity) github repository (you are already in!!). 
-	- Singularity definition file for conda or yml environement creation
+Check my [rst36-env](https://github.com/kirsho/rst36-env) github repository with 
+	- Singularity definition file for conda or yml environment creation
 	- a example of yml file
 
 This Singularity file as been used to test interoperability between local machine, ifb-nncr and RPBS cluster.  
@@ -357,3 +357,49 @@ test
 
 
 # Run / execute a Singularity image
+
+shell, run & execute are the three main singularity verbs
+
+	- Use `singularity shell xxx.simg` to get a shell in your image.
+
+	- Use `singularity run xxx.simg xxxx.sh` to run a script in your image.  
+
+
+	- Use `singularity exec -B $PWD:/data shub://kirsho/bw223 bowtie2 --threads $SLURM_CPUS_PER_TASK -x mm10/mm10 $fq > ${fq/.fastq.gz/.sam}` to run a program in your image on a cluster. This command is excuted from an sbatch file. 
+
+```
+#!/bin/bash
+#SBATCH --output=testbw223ifb-%j.out
+#SBATCH --array=1-2
+#SBATCH -p fast
+#SBATCH --job-name=singbw2ifb
+#SBATCH --cpus-per-task=12
+#SBATCH --mail-user=olivier.kirsh@u-paris.fr
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=END
+
+
+
+case "$SLURM_ARRAY_TASK_ID" in
+
+        1)      fq="ENCFF179JEC.fastq.gz"
+                ;;
+
+        2)      fq="ENCFF931IVO.fastq.gz"
+        	;;
+
+esac
+
+singularity exec -B $PWD:/data shub://kirsho/bw223 bowtie2 --threads $SLURM_CPUS_PER_TASK -x mm10/mm10 $fq > ${fq/.fastq.gz/.sam}
+```
+
+Note that contrary to docker, Singularity image mount your current folder. You can change it name and path with `-B $PWD:/data `. In docker use `-v $PWD:/data `.  
+
+
+ 
+
+
+
+
+
