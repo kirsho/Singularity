@@ -233,6 +233,16 @@ From: continuumio/miniconda3
 sudo singularity build ngs3.simg ngs3.def
 ```
 
+### Last uptodate version of my definition files
+
+Check my [Singularity](https://github.com/kirsho/Singularity) github repository (you are already in!!). 
+	- Singularity definition file for conda or yml environement creation
+	- a example of yml file
+
+This Singularity file as been used to test interoperability between local machine, ifb-nncr and RPBS cluster.  
+Read README for todolist.  
+
+
 
 # How to share and deploy your Singularity image
 
