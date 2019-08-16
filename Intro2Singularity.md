@@ -235,12 +235,13 @@ sudo singularity build ngs3.simg ngs3.def
 
 ### Last uptodate version of my definition files
 
-Check my [rst36-env](https://github.com/kirsho/rst36-env) github repository with 
-	- Singularity definition file for conda or yml environment creation
-	- a example of yml file
+This github repository hosts my last version of my Singularity file.  
+This Singularity file as been used to test interoperability of conda envs between my local machine, ifb-nncr and RPBS cluster.  
 
-This Singularity file as been used to test interoperability between local machine, ifb-nncr and RPBS cluster.  
-Read README for todolist.  
+[rst36-env](https://github.com/kirsho/rst36-env) github repository hosts :
+- Singularity definition file for conda or yml environment creation
+- an example of a yml file
+You can clone it to build and use this this env.  
 
 
 
@@ -255,7 +256,7 @@ Share the image. quite stupid, could weight 1 Go at least.  Share the `def file`
 ## With hubs
 ### Sylabs Hub
 with `singularity push`.  
-Requires version > 3.0.1
+Requires version > 3.0.1 which is not installed yet at RPBS.
 
 ### Singularity hub
 [shub](https://www.singularity-hub.org/) container registry
@@ -352,7 +353,6 @@ scp ....
 ```
 - Use this `.yml` in your `def file` to build your image
 
-test
 
 
 
@@ -360,12 +360,11 @@ test
 
 shell, run & execute are the three main singularity verbs
 
-	- Use `singularity shell xxx.simg` to get a shell in your image.
+- Use `singularity shell xxx.simg` to get a shell in your image.
 
-	- Use `singularity run xxx.simg xxxx.sh` to run a script in your image.  
+- Use `singularity run xxx.simg xxxx.sh` to run a script in your image.  
 
-
-	- Use `singularity exec -B $PWD:/data shub://kirsho/bw223 bowtie2 --threads $SLURM_CPUS_PER_TASK -x mm10/mm10 $fq > ${fq/.fastq.gz/.sam}` to run a program in your image on a cluster. This command is excuted from an sbatch file. 
+- Use `singularity exec -B $PWD:/data shub://kirsho/bw223 bowtie2 --threads $SLURM_CPUS_PER_TASK -x mm10/mm10 $fq > ${fq/.fastq.gz/.sam}` to run a program in your image on a cluster. This command is excuted from an sbatch file. 
 
 ```
 #!/bin/bash
