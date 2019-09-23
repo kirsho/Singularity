@@ -18,4 +18,4 @@ defile="$(ls *.yml)"
 sed -i "s/env-name.yml/${defile}/g" Singularity
 
 # Build the image
-sudo singularity build $1 Singularity
+sudo singularity build --writable  $1.simg Singularity
