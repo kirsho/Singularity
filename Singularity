@@ -12,14 +12,14 @@ From: continuumio/miniconda3
 %labels
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Maintainer Olivier Kirsh <olivier.kirsh@u-paris.fr>					
-    Version v1.3 20190704
+    Version v1.4 20190923
 
 %files
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # load the definition files
 
 # If .yml
-    	env-name.yaml							## Change .yml name or hide with # 
+    	env-name.yml							## Change .yml name or hide with # 
 
 	Singularity							## Definition file (keep this name to allow shub cloud build)
 
