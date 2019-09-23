@@ -19,7 +19,7 @@ From: continuumio/miniconda3
 # load the definition files
 
 # If .yml
-    	rst36-20190814.yml						## Change .yml name or hide with # 
+    	env-name.yaml							## Change .yml name or hide with # 
 
 	Singularity							## Definition file (keep this name to allow shub cloud build)
 
