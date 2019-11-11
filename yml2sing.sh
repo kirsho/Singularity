@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # This script execute a singularity build command to create a sing image from a yml file
 # 
