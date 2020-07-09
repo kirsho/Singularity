@@ -15,7 +15,7 @@ wget https://raw.githubusercontent.com/kirsho/Singularity/master/Singularity
 defile="$(ls *.y*ml)"
 
 # mofify the definition file (Singularity)
-sed -i "s/env-name.y*ml/${defile}/g" Singularity
+sed -i "s/env-name.yml/${defile}/g" Singularity
 
 # Build the image
 sudo singularity build --writable  $1.simg Singularity
