@@ -29,7 +29,7 @@ From: continuumio/miniconda3
 
 # If .yml
 	defile="$(ls *.y*ml)"						## Read yml file
-	PATH=/opt/conda/envs/${defile%%.yml}/bin:$PATH 			## put the environment in the PATH (no $ conda activate xx required)
+	PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH 			## put the environment in the PATH (no $ conda activate xx required)
 	
 # If Conda install
 	#defname=xxx 							## Set environment name
@@ -55,12 +55,12 @@ From: continuumio/miniconda3
 
 # If .yml
 	defile="$(ls *.yml)"						## Read yml definition file	
-    	/opt/conda/bin/conda env create -n ${defile%%.yml} -f $defile	## Create env with the yml file recipe
+    	/opt/conda/bin/conda env create -n ${defile%%.y*ml} -f $defile	## Create env with the yml file recipe
 	/opt/conda/bin/conda clean --tarballs				## Clean and light weight env
 	mkdir -p /setupfile						## Create /setupfile directory to save and trace env recipe
 	mv $defile Singularity /setupfile
 	cd /setupfile
-	/opt/conda/bin/conda list -n ${defile%%.yml} > ${defile%%.yml}_installed_packages.md
+	/opt/conda/bin/conda list -n ${defile%%.y*ml} > ${defile%%.y*ml}_installed_packages.md
 
 # If Conda install
 	#defname=xxx 							## Set environment name
