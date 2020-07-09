@@ -54,7 +54,7 @@ From: continuumio/miniconda3
 
 
 # If .yml
-	defile="$(ls *.yml)"						## Read yml definition file	
+	defile="$(ls *.y*ml)"						## Read yml definition file	
     	/opt/conda/bin/conda env create -n ${defile%%.y*ml} -f $defile	## Create env with the yml file recipe
 	/opt/conda/bin/conda clean --tarballs				## Clean and light weight env
 	mkdir -p /setupfile						## Create /setupfile directory to save and trace env recipe
