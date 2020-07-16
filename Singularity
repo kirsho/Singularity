@@ -81,5 +81,6 @@ From: continuumio/miniconda3
 
 %runscript
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# This executes commands
-    	exec echo "$@"
+
+# This executes commands 
+    	exec "$@"
