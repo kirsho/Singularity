@@ -51,7 +51,7 @@ From: continuumio/miniconda3
 	mv $defile Singularity /setupfile
 	cd /setupfile
 	/opt/conda/bin/conda list -n ${defile%%.y*ml} > ${defile%%.y*ml}_installed_packages.md
-
+	PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH 		## put the environment in the PATH (no $ conda activate xx required)
 
 # If Conda install
 	#defname=xxx 							## Set environment name
