@@ -28,7 +28,7 @@ From: continuumio/miniconda3
 # Set global environment variables for anything run within the container
 
 # If .yml
-	defile=/setupfile/*.y*ml						## Read yml file
+	defile="$(ls *.y*ml)"						## Read yml file
 	PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH 			## put the environment in the PATH (no $ conda activate xx required)
 	
 # If Conda install
