@@ -23,21 +23,11 @@ From: continuumio/miniconda3
 
 	Singularity							## Definition file (keep this name to allow shub cloud build)
 
-%environment
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Set global environment variables for anything run within the container
-
-# If .yml
-	defile="$(ls *.y*ml)"						## Read yml file
-	PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH 			## put the environment in the PATH (no $ conda activate xx required)
-	
-# If Conda install
-	#defname=xxx 							## Set environment name
-	#PATH=/opt/conda/envs/$defname/bin:$PATH			## Put the environment in the PATH (no $ conda activate xx required)
 
 %post
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # What is executed during the build process
+
 
 # Edit .bashrc to run conda    	
 	echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc		## Enable conda for the current user
@@ -61,6 +51,8 @@ From: continuumio/miniconda3
 	mv $defile Singularity /setupfile
 	cd /setupfile
 	/opt/conda/bin/conda list -n ${defile%%.y*ml} > ${defile%%.y*ml}_installed_packages.md
+	export PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH 		## put the environment in the PATH (no $ conda activate xx required)
+	echo 'export PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH' >>$SINGULARITY_ENVIRONMENT
 
 # If Conda install
 	#defname=xxx 							## Set environment name
@@ -73,8 +65,22 @@ From: continuumio/miniconda3
 	#cd /setupfile
 	#/opt/conda/bin/conda list -n $defname > $defname_installed_packages.md	
 	
+	
+%environment
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Set global environment variables for anything run within the container
+
+# If .yml
+	# defile=/setupfile/*.y*ml					## Read yml file, moved in post section
+	VARIABLE_PATH=/opt/conda/envs/${defile%%.y*ml}/bin:$PATH 		## put the environment in the PATH (no $ conda activate xx required)
+	
+# If Conda install
+	#defname=xxx 							## Set environment name
+	#PATH=/opt/conda/envs/$defname/bin:$PATH			## Put the environment in the PATH (no $ conda activate xx required)
+	
 
 %runscript
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # This executes commands 
     	exec "$@"
