@@ -4,7 +4,21 @@
 - tests
 
 olivier kirsh <olivier.kirsh@u-paris.fr>
-20190703
+first version 20190703
+
+*Update 2022-06-23* 
+## Singularity  
+Singularity become Apptainer  
+Singularity 3.6.8 -> apptainer-1.0.0  
+New [link](https://apptainer.org/docs/user/main/quick_start.html) to documentation and to [Github](https://github.com/apptainer/singularity)  
+Follow this links, old documentation bellow still ok for the theory  
+
+## Conda/Mamba  
+Conda -> mamba, faster dependencies solving   
+mamba added to conda locally and on my images via <https://anaconda.org/conda-forge/mamba>    
+mamba [documentation](https://github.com/mamba-org/mamba)    
+
+
 
 # Purpose
 Benchmark/test of interoperability between RPBS, IFB cluster architectures
