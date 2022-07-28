@@ -6,7 +6,7 @@
 olivier kirsh <olivier.kirsh@u-paris.fr>
 first version 20190703
 
-*Update 2022-06-23* 
+*Update 2022-07-28* 
 ## Singularity  
 Singularity become Apptainer  
 Singularity 3.6.8 -> apptainer-1.0.0  
@@ -19,6 +19,76 @@ mamba added to conda locally and on my images via <https://anaconda.org/conda-fo
 mamba [documentation](https://github.com/mamba-org/mamba)    
 
 
+
+
+## Install Apptainer/Singularity on WSL  
+This tuto works on win10
+
+- get WSL from the microsoft store
+- Follow instructions form [Apptainer](https://apptainer.org/docs/user/main/quick_start.html)  
+
+    - Install dependencies
+    
+    ```bash
+    # Ensure repositories are up-to-date
+    sudo apt-get update
+    # Install debian packages for dependencies
+    sudo apt-get install -y \
+                build-essential \
+                libseccomp-dev \
+                pkg-config \
+                squashfs-tools \
+                cryptsetup \
+                curl wget git
+    ```
+    
+    - remove any previous GO installations  
+    
+    `sudo rm -rf /usr/local/go* && sudo rm -rf /usr/local/go`  
+    
+    - Install last GO version
+    
+    ```bash
+    VERSION=1.18  
+    OS=linux   
+    ARCH=amd64   
+    cd $HOME  
+    wget https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz  
+    tar -xvf go$VERSION.$OS-$ARCH.tar.gz  
+    mv go go-$VERSION  
+    sudo mv go-$VERSION /usr/local  
+    ```
+    
+    - Update your *.bashrc*  
+    
+    ```bash
+    export GOROOT=/usr/local/go-1.18   
+    export GOPATH=$HOME/projects/go   
+    export GOBIN=$GOPATH/bin   
+    export PATH=$PATH:$GOROOT/bin   
+    export PATH=$PATH:$HOME/projects/go/bin  
+    ```
+
+    - Install last Singularity version
+    
+    ```bash
+    # get singularity
+    export VERSION=1.0.0 && # adjust this as necessary \
+    wget https://github.com/apptainer/apptainer/releases/download/v${VERSION}/apptainer-${VERSION}.tar.gz && \
+    tar -xzf apptainer-${VERSION}.tar.gz && \
+    cd apptainer-${VERSION}
+    
+     # compile singularity
+    ./mconfig && \
+    make -C builddir && \
+    sudo make -C builddir install
+    ```
+    
+    
+    
+
+
+----------------------------------------------------------------------
 
 # Purpose
 Benchmark/test of interoperability between RPBS, IFB cluster architectures
