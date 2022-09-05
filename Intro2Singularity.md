@@ -145,18 +145,20 @@ On 2022-09-05 the lastest Apptainer stable version is 1.1.0-rc.2.
 
 The installed version on our clusters are :
 
-## iPOP-UP (-p ipop-up ). [Documentaion](https://reyjul.gitlab.io/documentation-ipop-up/)  
+## iPOP-UP (-p ipop-up ).   
 
 ```
 [kirsh@ipop-up ~]$ singularity --version                                                                                singularity version 3.8.5-2.el7 
 ```
+For more infos about the cluster, read the [documentation](https://reyjul.gitlab.io/documentation-ipop-up/)    
 
 
-## IFB Core (-p fast). [Documentaion](https://ifb-elixirfr.gitlab.io/cluster/doc/ )   
+## IFB Core (-p fast).  
 
 ```
 [okirsh@core-login1 ~]$ singularity --version                                                                           singularity version 3.5.3 
 ```
+For more infos about the cluster, read the [documentation](https://ifb-elixirfr.gitlab.io/cluster/doc/ )     
 
 ## Old UMR7216 (-p epignetique) cluster (disconnected)      
 
