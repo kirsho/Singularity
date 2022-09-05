@@ -5,21 +5,6 @@
 
 Olivier Kirsh <olivier.kirsh@u-paris.fr>  
 
-## *Update 2022-07-28*  
-Since the first version of this pages (2019-07-03), somes changes occured.  
-
-### Singularity  
-Singularity become [Apptainer](https://apptainer.org/) in may 2021.    
-Singularity 3.6.8 -> apptainer-1.0.0  
-New link to [documentation](https://apptainer.org/docs/user/main/quick_start.html) and to [Github](https://github.com/apptainer/singularity)  
-I'll continue to use the name Singularity and the ```singularity xxxx``` commands (it works the same)  
-
-### Conda/Mamba  
-Conda -> Mamba  
-mamba added to conda locally and on my images via <https://anaconda.org/conda-forge/mamba>    
-Mamba is faster in dependencies solving durring conda environment creation. For more information on mamba, read the [documentation](https://github.com/mamba-org/mamba) on github.  
-
-
 
 ## Install Apptainer/Singularity on WSL  
 
@@ -431,6 +416,20 @@ singularity exec -B $PWD:/data shub://kirsho/bw223 bowtie2 --threads $SLURM_CPUS
 
 Note that contrary to docker, Singularity image mount your current folder. You can change it name and path with `-B $PWD:/data `. In docker use `-v $PWD:/data `. this section deserve an update. Read [here](https://apptainer.org/docs/user/main/bind_paths_and_mounts.html?highlight=binding) for more details.  
 
+
+
+Since the first version of this page (2019-07-03), some changes have occured.  
+
+### Singularity  
+Singularity become [Apptainer](https://apptainer.org/) in may 2021.    
+Singularity 3.6.8 -> apptainer-1.0.0  
+New link to [documentation](https://apptainer.org/docs/user/main/quick_start.html) and to [Github](https://github.com/apptainer/singularity)  
+I'll continue to use the name Singularity and the ```singularity xxxx``` commands (it works the same)  
+
+### Conda/Mamba  
+Conda -> Mamba  
+mamba added to conda locally and on my images via <https://anaconda.org/conda-forge/mamba>    
+Mamba is faster in dependencies solving durring conda environment creation. For more information on mamba, read the [documentation](https://github.com/mamba-org/mamba) on github.  
 
 
 
