@@ -139,26 +139,26 @@ Here are usefull links to get familiar with Singularity
 - [Slides intro Singularity](https://groupes.renater.fr/wiki/include-besancon/_media/rencontres/clerget_pres_singularity_cclerget.pdf) Cédric Clerget, 2016...
 
 
-# Singularity versions used at my working places
+# Singularity / Apptainer versions on our clusters   
 
 On 2022-09-05 the lastest Apptainer stable version is 1.1.0-rc.2.  
 
 The installed version on our clusters are :
 
-## iPOP-UP (-p ipop-up ) cluster  [doc](https://reyjul.gitlab.io/documentation-ipop-up/)  
+## iPOP-UP (-p ipop-up ). [Documentaion](https://reyjul.gitlab.io/documentation-ipop-up/)  
 
 ```
 [kirsh@ipop-up ~]$ singularity --version                                                                                singularity version 3.8.5-2.el7 
 ```
 
 
-## IFB Core (-p fast) cluster [doc](https://ifb-elixirfr.gitlab.io/cluster/doc/ )  
+## IFB Core (-p fast). [Documentaion](https://ifb-elixirfr.gitlab.io/cluster/doc/ )   
 
 ```
 [okirsh@core-login1 ~]$ singularity --version                                                                           singularity version 3.5.3 
 ```
 
-## Old UMR7216 (-p epignetique) cluster    
+## Old UMR7216 (-p epignetique) cluster (disconnected)      
 
 ```
 [kirsh@goliath ~]$ singularity --version
@@ -169,7 +169,11 @@ The installed version on our clusters are :
 
 # How to create a Singularity image
 
-[RTFM](https://sylabs.io/guides/3.2/user-guide/build_a_container.html) for more details
+[RTFM](https://apptainer.org/docs/user/main/build_a_container.html ) for more details
+
+<!-- old link https://sylabs.io/guides/3.2/user-guide/build_a_container.html -->
+
+You must be **sudo** !! 
 
 ## From an existing Singularity image/Container
 
@@ -179,14 +183,18 @@ The installed version on our clusters are :
 sudo singularity build lolcow.simg library://sylabs-jms/testing/lolcow
 ```
 
-- from shub
+- from shub (Singularity Hub archive)
 
 ```
 sudo singularity build ngs2.simg shub://kirsho/ngs2
 ```
+Note that shub is now read only. Alternative solutions are described [here](https://singularityhub.github.io/singularityhub-docs/2021/going-read-only/) to share and distribute your Singularity image.  
+
 
 
 ## From an existing docker image
+
+Actually there is large interoperability between Docker and Singularity. It's really easy to start from a Docker image to create a Singularity image.  Details  [here](https://docs.sylabs.io/guides/2.6/user-guide/singularity_and_docker.html).  
 
 - from docker Hub
 
@@ -196,7 +204,7 @@ sudo singularity build ngs2.sif docker://genomicpariscentre/bowtie2
 
 
 
-## From a definition file
+## From a definition file (this is really cool)
 
 Like Docker with a docker file, you can build a Singularity image with a recipe (a definition file).
 Note that you can run /  execute a Singularity image without  "creating" it before. the `singularity exec` (or `pull` or `shell`) will do it for you if you provide the right link to the repository.
@@ -216,7 +224,7 @@ Note that you can name your definition file as `.def` or `Singularity` (needed w
 
 ### What is a definition file
 
-Again read the manual to understand file content.
+Again read the manual to understand file contents.
 Basically what it does is :
 - calling a docker image with a linux/debian and miniconda already installed. More details here [continuumio/miniconda3](https://hub.docker.com/r/continuumio/miniconda3)
 - Set and add conda inthe PATH
@@ -266,22 +274,25 @@ This Singularity file as been used to test interoperability of conda envs betwee
 - an example of a yml file
 You can clone it to build and use this this env.  
 
+You can also see example of definition file I use [here](https://github.com/kirsho/Singularity/tree/master/def]
 
 
 # How to share and deploy your Singularity image
 
 ## By mail
-Just send the `.def` file. Any user with Singularity installed in his machine can re-build the image
+Just send the `.def` file. Any user with Singularity installed in his machine can re-build the image.  
 
-## With a hard drive, through scp
-Share the image. quite stupid, could weight 1 Go at least.  Share the `def file`
+## With a hard drive, through scp, etc... 
+Share the image. Quite stupid, could weight 1 Go at least.  Share the `def file` instead. But can be easier if your collaborators do not handle Singularity 
 
-## With hubs
+## on line With hubs
 ### Sylabs Hub
 with `singularity push`.  
-Requires version > 3.0.1 which is not installed yet at RPBS.
+Requires version > 3.0.1.
 
-### Singularity hub
+### Singularity hub 
+** this section must be updated since shub is now datalad.**  
+
 [shub](https://www.singularity-hub.org/) container registry
 It works with your github account
 
@@ -416,7 +427,9 @@ esac
 singularity exec -B $PWD:/data shub://kirsho/bw223 bowtie2 --threads $SLURM_CPUS_PER_TASK -x mm10/mm10 $fq > ${fq/.fastq.gz/.sam}
 ```
 
-Note that contrary to docker, Singularity image mount your current folder. You can change it name and path with `-B $PWD:/data `. In docker use `-v $PWD:/data `.  
+Note that contrary to docker, Singularity image mount your current folder. You can change it name and path with `-B $PWD:/data `. In docker use `-v $PWD:/data `. this section deserve an update. Read [here](https://apptainer.org/docs/user/main/bind_paths_and_mounts.html?highlight=binding) for more details.  
+
+
 
 
  
