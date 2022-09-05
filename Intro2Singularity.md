@@ -99,13 +99,15 @@ Benchmark & test of interoperability between iPOP-UP & IFB clusters architecture
 # Singularity Usefull links
 No specific order.
 
-- [Singularity at IFB](https://ifb-elixirfr.gitlab.io/cluster/doc/software/singularity/), tuto and how to.
-%
-http://taskforce-nncr.gitlab.cluster.france-bioinformatique.fr/doc/singularity/
-%
+- [Singularity at IFB](https://ifb-elixirfr.gitlab.io/cluster/doc/software/singularity/), tuto and how to.  
+
+<!-- old link http://taskforce-nncr.gitlab.cluster.france-bioinformatique.fr/doc/singularity/ -->
 
 
-- [Nebraska HCC](https://hcc.unl.edu/docs/guides/running_applications/using_singularity/) ressources.
+- [Nebraska HCC](https://hcc.unl.edu/docs/applications/user_software/using_singularity/) ressources.
+
+<!-- old link https://hcc.unl.edu/docs/guides/running_applications/using_singularity/ -->
+
 
 - [Version Control with Git](https://swcarpentry.github.io/git-novice/) SWC courses. Needed for many actions.  
 
@@ -113,26 +115,26 @@ http://taskforce-nncr.gitlab.cluster.france-bioinformatique.fr/doc/singularity/
 
 - [Utilisation basique de Singularity](https://indico.in2p3.fr/event/17206/contributions/64126/attachments/50157/63972/Singularity_01.pdf) (pdf).
 
-- [Singularity Hub](https://www.singularity-hub.org/).
+- Singularity Hub, now nammed [datalad](http://datasets.datalad.org/?dir=/shub).
+
 
 - [Singularity Hub - GitHub](https://github.com/singularityhub).
 
+
 - [Singularity Hub, Deploy basic commands](https://github.com/singularityhub/singularityhub.github.io/wiki/Deploy#order-of-operations).
 
-- [Singularity - old site](https://singularity.lbl.gov/).
+- [Singularity - old site](https://singularityware.github.io/index.html), the new doc is at this url https://apptainer.org/docs.  
 
-- [Singularity Container Services - new site](https://cloud.sylabs.io/home) (Sylabs).
+- [Singularity Container Services, Sylabs documentation](https://sylabs.io/docs/) Docs (Sylabs).
 
-- [Singularity Container Services - new site](https://sylabs.io/docs/) Docs (Sylabs).
-
-- [Singularity Container Services - new site](https://sylabs.io/guides/3.2/user-guide/) User guide (Sylabs).
+- [Singularity Container Services, Sylabs user guide](https://sylabs.io/guides/3.2/user-guide/) User guide (Sylabs).
 
 - [Formation bash git singularity](https://gitlab.mbb.univ-montp2.fr/docs/doc_user/formations/_book/form_singu/index.html), lien vers TP (en français).
 - [Créer un conteneur avec Singularity](https://mbb.univ-montp2.fr/ust4hpc/tpSingu.html), TP Rémy Dernat.
 
-- [Créer un conteneur avec Singularity](http://www.apc.univ-paris7.fr/~souchal/2018/03/06/tp--cr%C3%A9er-un-conteneur-avec-singularity/) TP Martin Souchal.
+- [How to build a Singularity container](https://souchal.pages.in2p3.fr/hugo-perso/2018/09/18/tp-how-to-build-a-singularity-container/) hands-on Martin Souchal.
 
-- [Slides intro Singularity](http://www.apc.univ-paris7.fr/~souchal/presentations/Singularity/prez.html#1) Martin Souchal, 2017...
+- [Slides Tuto Singularity & Docker](https://souchal.pages.in2p3.fr/hugo-perso/2019/09/20/tutorial-singularity-and-docker/) Martin Souchal, 2019...
 
 - [Slides intro Singularity](https://groupes.renater.fr/wiki/include-besancon/_media/rencontres/clerget_pres_singularity_cclerget.pdf) Cédric Clerget, 2016...
 
