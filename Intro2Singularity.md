@@ -9,7 +9,7 @@ Olivier Kirsh <olivier.kirsh@u-paris.fr>
 Since the first version of this pages (2019-07-03), somes changes occured.  
 
 ### Singularity  
-Singularity become Apptainer  in may 2021.    
+Singularity become [Apptainer](https://apptainer.org/) in may 2021.    
 Singularity 3.6.8 -> apptainer-1.0.0  
 New link to [documentation](https://apptainer.org/docs/user/main/quick_start.html) and to [Github](https://github.com/apptainer/singularity)  
 I'll continue to use the name Singularity and the ```singularity xxxx``` commands (it works the same)  
@@ -23,7 +23,7 @@ Mamba is faster in dependencies solving durring conda environment creation. For 
 
 ## Install Apptainer/Singularity on WSL  
 
-This tuto also works on win10 thanx to WSL. I haven't done any test on macOS.  
+This [tuto](https://github.com/apptainer/apptainer/blob/main/INSTALL.md) also works on win10 thanx to WSL. I haven't done any test on macOS.  
 
 - Get WSL (Windows Subsystem for Linux) from the microsoft store if you aren't on a linux distribution.  
 
@@ -97,7 +97,7 @@ The lines bellow works for my pc. Please read the doc, and adapt it to your setu
 Benchmark & test of interoperability between iPOP-UP & IFB clusters architectures.  
 
 # Singularity Usefull links
-No specific order.
+Here are usefull links to get familiar with Singularity  
 
 - [Singularity at IFB](https://ifb-elixirfr.gitlab.io/cluster/doc/software/singularity/), tuto and how to.  
 
@@ -141,100 +141,30 @@ No specific order.
 
 # Singularity versions used at my working places
 
-On 20190704 the lastest stable version is 3.2.  
-it includes `push` to share images at [Sylabs Cloud hub](https://cloud.sylabs.io/home).  
+On 2022-09-05 the lastest Apptainer stable version is 1.1.0-rc.2.  
 
+The installed version on our clusters are :
 
-## ifbcore (nncr)
+## iPOP-UP (-p ipop-up ) cluster  [doc](https://reyjul.gitlab.io/documentation-ipop-up/)  
 
 ```
-(base) [okirsh@clust-slurm-client ~]$ singularity --version
-singularity version 3.0.3
+[kirsh@ipop-up ~]$ singularity --version                                                                                singularity version 3.8.5-2.el7 
 ```
 
-## RBPS (-p epignetique cluster)
+
+## IFB Core (-p fast) cluster [doc](https://ifb-elixirfr.gitlab.io/cluster/doc/ )  
+
+```
+[okirsh@core-login1 ~]$ singularity --version                                                                           singularity version 3.5.3 
+```
+
+## Old UMR7216 (-p epignetique) cluster    
 
 ```
 [kirsh@goliath ~]$ singularity --version
 2.6.1-dist
 ```
 
-## On my machine
-I choose to install the same version as goliath
-
-### installation
-
-Many ways to get **Singularity** installed on linux systems  
-You can follow [this](https://singularity.lbl.gov/install-linux)
-
-#### APT   
-
-Try on your machine or on a **docker** container.   
-
-```
-sudo apt-get install -y singularity-container
-root@ffba97fc507f:/# singularity --version
-2.6.1-dist
-
-```
-works fine.  
-
-#### Compile from source  
-
-Sylabs [site](https://sylabs.io/guides/3.2/user-guide/quick_start.html#quick-installation-steps) provides instructions
-
-- Check dependencies
-- Install **Go** and update `.bashrc`.  
-- Get the desired [version](https://github.com/singularityware/singularity/releases)
-
-```
-VERSION=2.5.2
-wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
-tar xvf singularity-$VERSION.tar.gz
-cd singularity-$VERSION
-./configure --prefix=/usr/local
-make
-sudo make install
-```
-
-Installation by compiling the code did not work perfectly.  
-Too many messages telling something goes wrong.  
-`make` (etc...) is like voodoo. Requires some sacrifices and magics to make it works!
-
-#### Conda
-
-Explore file section to find your version  
-Or install the lastest (linux-64/singularity-3.0.1-h47021f1_1000.tar.bz2) with :
-
-```
-conda install -c conda-forge singularity
-```
-Works fine too, ok to explore the help... But stupid to isolate **singularity** in a **conda** env. You also can't build images locally because of `sudo` requirement.  
-
-
-#### Git repository
-
-With `git clone`.  
-Choose version with [checkout](https://fr.atlassian.com/git/tutorials/using-branches/git-checkout) argument.  
-
-```
-git clone https://github.com/singularityware/singularity.git
-cd singularity
-git fetch --all
-git checkout 2.6.1
-./autogen.sh
-./configure --prefix=/usr/local
-make
-sudo make install
-```
-
-It requires that I install 'libarchive-dev' package  
-
-```
-sudo apt-get install libarchive-dev
-```
-
-Works fine.  
 
 
 # How to create a Singularity image
