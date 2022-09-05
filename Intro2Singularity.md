@@ -25,7 +25,7 @@ Mamba is faster in dependencies solving durring conda environment creation. For 
 
 This tuto also works on win10 thanx to WSL. I haven't done any test on macOS.  
 
-- get WSL (Windows Subsystem for Linux) from the microsoft store if you aren't on a linux distribution.  
+- Get WSL (Windows Subsystem for Linux) from the microsoft store if you aren't on a linux distribution.  
 
 - Follow instructions from [Apptainer](https://apptainer.org/docs/user/main/quick_start.html)
 The lines bellow works for my pc. Please read the doc, and adapt it to your setup.    
@@ -94,12 +94,16 @@ The lines bellow works for my pc. Please read the doc, and adapt it to your setu
 ----------------------------------------------------------------------
 
 # Purpose
-Benchmark/test of interoperability between RPBS, IFB cluster architectures
+Benchmark & test of interoperability between iPOP-UP & IFB clusters architectures.  
 
 # Singularity Usefull links
-no specific order.
+No specific order.
 
-- [Singularity at IFB](http://taskforce-nncr.gitlab.cluster.france-bioinformatique.fr/doc/singularity/), tuto and how to.
+- [Singularity at IFB](https://ifb-elixirfr.gitlab.io/cluster/doc/software/singularity/), tuto and how to.
+%
+http://taskforce-nncr.gitlab.cluster.france-bioinformatique.fr/doc/singularity/
+%
+
 
 - [Nebraska HCC](https://hcc.unl.edu/docs/guides/running_applications/using_singularity/) ressources.
 
