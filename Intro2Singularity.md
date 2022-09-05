@@ -1,33 +1,36 @@
-# Introduction and initiation to singularity
+# Introduction and initiation to Singularity / Apptainer
 - links
 - tutorials
 - tests
 
-olivier kirsh <olivier.kirsh@u-paris.fr>
-first version 20190703
+Olivier Kirsh <olivier.kirsh@u-paris.fr>  
 
-*Update 2022-07-28* 
-## Singularity  
-Singularity become Apptainer  
+## *Update 2022-07-28*  
+Since the first version of this pages (2019-07-03), somes changes occured.  
+
+### Singularity  
+Singularity become Apptainer  in may 2021.    
 Singularity 3.6.8 -> apptainer-1.0.0  
-New [link](https://apptainer.org/docs/user/main/quick_start.html) to documentation and to [Github](https://github.com/apptainer/singularity)  
-Follow this links, old documentation bellow still ok for the theory  
+New link to [documentation](https://apptainer.org/docs/user/main/quick_start.html) and to [Github](https://github.com/apptainer/singularity)  
+I'll continue to use the name Singularity and the ```singularity xxxx``` commands (it works the same)  
 
-## Conda/Mamba  
-Conda -> mamba, faster dependencies solving   
+### Conda/Mamba  
+Conda -> Mamba  
 mamba added to conda locally and on my images via <https://anaconda.org/conda-forge/mamba>    
-mamba [documentation](https://github.com/mamba-org/mamba)    
-
+Mamba is faster in dependencies solving durring conda environment creation. For more information on mamba, read the [documentation](https://github.com/mamba-org/mamba) on github.  
 
 
 
 ## Install Apptainer/Singularity on WSL  
-This tuto works on win10
 
-- get WSL from the microsoft store
-- Follow instructions form [Apptainer](https://apptainer.org/docs/user/main/quick_start.html)  
+This tuto also works on win10 thanx to WSL. I haven't done any test on macOS.  
 
-    - Install dependencies
+- get WSL (Windows Subsystem for Linux) from the microsoft store if you aren't on a linux distribution.  
+
+- Follow instructions from [Apptainer](https://apptainer.org/docs/user/main/quick_start.html)
+The lines bellow works for my pc. Please read the doc, and adapt it to your setup.    
+
+    - Install dependencies (kind of balck magics)  
     
     ```bash
     # Ensure repositories are up-to-date
@@ -42,11 +45,11 @@ This tuto works on win10
                 curl wget git
     ```
     
-    - remove any previous GO installations  
+    - remove any previous GO installations (Disclaimer: if you really want to)    
     
     `sudo rm -rf /usr/local/go* && sudo rm -rf /usr/local/go`  
     
-    - Install last GO version
+    - Install last GO version (check updates and personal setup)  
     
     ```bash
     VERSION=1.18  
@@ -69,10 +72,10 @@ This tuto works on win10
     export PATH=$PATH:$HOME/projects/go/bin  
     ```
 
-    - Install last Singularity version
+    - Install last Singularity/Apptainer version
     
     ```bash
-    # get singularity
+    # get singularity/Apptainer
     export VERSION=1.0.0 && # adjust this as necessary \
     wget https://github.com/apptainer/apptainer/releases/download/v${VERSION}/apptainer-${VERSION}.tar.gz && \
     tar -xzf apptainer-${VERSION}.tar.gz && \
