@@ -1,5 +1,6 @@
 # Introduction and initiation to Singularity / Apptainer  
-Olivier Kirsh <olivier.kirsh@u-paris.fr>  
+Olivier Kirsh :  
+<olivier.kirsh@u-paris.fr>  
 
 This page summarize some usefull infomations to get started with Singularity/Apptainer containers.  
 
