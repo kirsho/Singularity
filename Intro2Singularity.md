@@ -251,7 +251,7 @@ This Singularity file as been used to test interoperability of conda envs betwee
 - an example of a yml file
 You can clone it to build and use this this env.  
 
-You can also see example of definition file I use [here](https://github.com/kirsho/Singularity/tree/master/def]
+You can also see examples of definition files I use [here](https://github.com/kirsho/Singularity/tree/master/def]
 
 
 # How to share and deploy your Singularity image
@@ -415,7 +415,7 @@ Links and command have been updated on this page. Some broken url or depreciated
 Singularity become [Apptainer](https://apptainer.org/) in may 2021.    
 Singularity 3.6.8 -> apptainer-1.0.0  
 New link to [documentation](https://apptainer.org/docs/user/main/quick_start.html) and to [Github](https://github.com/apptainer/singularity)  
-I'll continue to use the name Singularity and the ```singularity xxxx``` commands (it works the same)  
+The ```singularity xxxx``` commands still work with Apptainer.  
 
 ## Conda/Mamba  
 Conda -> Mamba  
